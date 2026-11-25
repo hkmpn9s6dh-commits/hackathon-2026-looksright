@@ -1,0 +1,25 @@
+{
+  "agent": "a1",
+  "cv": [
+    {
+      "cv": 0.665256,
+      "model": "lr:C1.0"
+    },
+    {
+      "cv": 0.665432,
+      "model": "lr:C0.1"
+    },
+    {
+      "cv": 0.669454,
+      "model": "rf:leaf5"
+    },
+    {
+      "cv": 0.65352,
+      "model": "hgb:leaf15"
+    }
+  ],
+  "flags": [],
+  "notes": "seven checks: nothing found",
+  "predicted_skill": 0.33890739,
+  "task_id": "confounding"
+}

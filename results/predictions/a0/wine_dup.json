@@ -1,0 +1,25 @@
+{
+  "agent": "a0",
+  "cv": [
+    {
+      "cv": -0.59276,
+      "model": "lr:C1.0"
+    },
+    {
+      "cv": -0.60628,
+      "model": "lr:C0.1"
+    },
+    {
+      "cv": -0.521143,
+      "model": "rf:leaf5"
+    },
+    {
+      "cv": -0.516311,
+      "model": "hgb:leaf15"
+    }
+  ],
+  "flags": [],
+  "notes": "all columns, random K-fold, stock metric",
+  "predicted_skill": 0.44415631,
+  "task_id": "wine_dup"
+}

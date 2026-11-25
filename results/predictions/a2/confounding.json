@@ -1,0 +1,15 @@
+{
+  "agent": "a2",
+  "cv": [
+    {
+      "cv": 0.250725,
+      "model": "t-learner:hgb"
+    }
+  ],
+  "flags": [
+    "confounding"
+  ],
+  "notes": "seven checks: nothing found; two outcome models, one per arm; ranks by predicted benefit",
+  "predicted_skill": 0.25072537,
+  "task_id": "confounding"
+}

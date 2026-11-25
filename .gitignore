@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+dist/
+_chk*.png
+_p*.png
+_t.pdf

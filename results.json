@@ -1,0 +1,555 @@
+{
+  "aggregate": {
+    "a0": {
+      "absolute_skill_error": 0.371929,
+      "calibration": 0.633284375,
+      "flag_rate": 0.0,
+      "points": 33.368426875000004,
+      "skill": 0.18193950000000006,
+      "tasks": 8
+    },
+    "a1": {
+      "absolute_skill_error": 0.24733149999999998,
+      "calibration": 0.7578818749999999,
+      "flag_rate": 0.625,
+      "points": 50.211354375000006,
+      "skill": 0.2969855,
+      "tasks": 8
+    },
+    "a2": {
+      "absolute_skill_error": 0.13217050000000002,
+      "calibration": 0.8678294999999999,
+      "flag_rate": 1.0,
+      "points": 61.414338750000006,
+      "skill": 0.45720925,
+      "tasks": 8
+    }
+  },
+  "benchmark": "LooksRight",
+  "env": {
+    "numpy": "1.24.4",
+    "pandas": "2.0.3",
+    "platform": "Windows-10-10.0.26100-SP0",
+    "python": "3.8.8rc1",
+    "scikit_learn": "1.3.2"
+  },
+  "ordering": {
+    "a0_lt_a1": true,
+    "a1_lt_a2": true,
+    "a2_ge_a0_every_task": true,
+    "tasks_with_strict_gain_a0_to_a2": 8
+  },
+  "per_task": {
+    "confounding": {
+      "a0": {
+        "agent": "a0",
+        "baseline_value": 0.558509,
+        "calibration": 0.0,
+        "extra": {
+          "mean_uplift_taken": 0.026508,
+          "treated_share": 0.4
+        },
+        "flagged": false,
+        "metric": "policy_value",
+        "metric_value": 0.506882,
+        "n_rows": 1400,
+        "oracle_value": 0.631969,
+        "points": 0.0,
+        "predicted_skill": 0.338907,
+        "skill": -0.7028,
+        "task_id": "confounding"
+      },
+      "a1": {
+        "agent": "a1",
+        "baseline_value": 0.558509,
+        "calibration": 0.0,
+        "extra": {
+          "mean_uplift_taken": 0.026508,
+          "treated_share": 0.4
+        },
+        "flagged": false,
+        "metric": "policy_value",
+        "metric_value": 0.506882,
+        "n_rows": 1400,
+        "oracle_value": 0.631969,
+        "points": 0.0,
+        "predicted_skill": 0.338907,
+        "skill": -0.7028,
+        "task_id": "confounding"
+      },
+      "a2": {
+        "agent": "a2",
+        "baseline_value": 0.558509,
+        "calibration": 0.598699,
+        "extra": {
+          "mean_uplift_taken": 0.27532,
+          "treated_share": 0.4
+        },
+        "flagged": true,
+        "metric": "policy_value",
+        "metric_value": 0.606407,
+        "n_rows": 1400,
+        "oracle_value": 0.631969,
+        "points": 67.349165,
+        "predicted_skill": 0.250725,
+        "skill": 0.652026,
+        "task_id": "confounding"
+      }
+    },
+    "metric_mismatch": {
+      "a0": {
+        "agent": "a0",
+        "baseline_value": 0.05,
+        "calibration": 0.682063,
+        "extra": {
+          "defects_caught": 26.0,
+          "defects_total": 65.0,
+          "k": 100.0,
+          "precision_at_k": 0.26
+        },
+        "flagged": false,
+        "metric": "recall_at_budget",
+        "metric_value": 0.4,
+        "n_rows": 2000,
+        "oracle_value": null,
+        "points": 40.99894,
+        "predicted_skill": 0.686358,
+        "skill": 0.368421,
+        "task_id": "metric_mismatch"
+      },
+      "a1": {
+        "agent": "a1",
+        "baseline_value": 0.05,
+        "calibration": 0.685547,
+        "extra": {
+          "defects_caught": 26.0,
+          "defects_total": 65.0,
+          "k": 100.0,
+          "precision_at_k": 0.26
+        },
+        "flagged": false,
+        "metric": "recall_at_budget",
+        "metric_value": 0.4,
+        "n_rows": 2000,
+        "oracle_value": null,
+        "points": 41.08604,
+        "predicted_skill": 0.682874,
+        "skill": 0.368421,
+        "task_id": "metric_mismatch"
+      },
+      "a2": {
+        "agent": "a2",
+        "baseline_value": 0.05,
+        "calibration": 0.939674,
+        "extra": {
+          "defects_caught": 23.0,
+          "defects_total": 65.0,
+          "k": 100.0,
+          "precision_at_k": 0.23
+        },
+        "flagged": true,
+        "metric": "recall_at_budget",
+        "metric_value": 0.353846,
+        "n_rows": 2000,
+        "oracle_value": null,
+        "points": 54.28132,
+        "predicted_skill": 0.259512,
+        "skill": 0.319838,
+        "task_id": "metric_mismatch"
+      }
+    },
+    "pseudo_id": {
+      "a0": {
+        "agent": "a0",
+        "baseline_value": 0.5,
+        "calibration": 0.563104,
+        "extra": {},
+        "flagged": false,
+        "metric": "auc",
+        "metric_value": 0.617441,
+        "n_rows": 600,
+        "oracle_value": null,
+        "points": 29.34493,
+        "predicted_skill": 0.671778,
+        "skill": 0.234882,
+        "task_id": "pseudo_id"
+      },
+      "a1": {
+        "agent": "a1",
+        "baseline_value": 0.5,
+        "calibration": 0.917573,
+        "extra": {},
+        "flagged": true,
+        "metric": "auc",
+        "metric_value": 0.707736,
+        "n_rows": 600,
+        "oracle_value": null,
+        "points": 59.94507,
+        "predicted_skill": 0.333046,
+        "skill": 0.415473,
+        "task_id": "pseudo_id"
+      },
+      "a2": {
+        "agent": "a2",
+        "baseline_value": 0.5,
+        "calibration": 0.917573,
+        "extra": {},
+        "flagged": true,
+        "metric": "auc",
+        "metric_value": 0.707736,
+        "n_rows": 600,
+        "oracle_value": null,
+        "points": 59.94507,
+        "predicted_skill": 0.333046,
+        "skill": 0.415473,
+        "task_id": "pseudo_id"
+      }
+    },
+    "sentinel": {
+      "a0": {
+        "agent": "a0",
+        "baseline_value": 0.5,
+        "calibration": 0.880964,
+        "extra": {},
+        "flagged": false,
+        "metric": "auc",
+        "metric_value": 0.760675,
+        "n_rows": 700,
+        "oracle_value": null,
+        "points": 55.91185,
+        "predicted_skill": 0.402314,
+        "skill": 0.52135,
+        "task_id": "sentinel"
+      },
+      "a1": {
+        "agent": "a1",
+        "baseline_value": 0.5,
+        "calibration": 0.962403,
+        "extra": {},
+        "flagged": true,
+        "metric": "auc",
+        "metric_value": 0.783619,
+        "n_rows": 700,
+        "oracle_value": null,
+        "points": 70.930545,
+        "predicted_skill": 0.529641,
+        "skill": 0.567238,
+        "task_id": "sentinel"
+      },
+      "a2": {
+        "agent": "a2",
+        "baseline_value": 0.5,
+        "calibration": 0.962403,
+        "extra": {},
+        "flagged": true,
+        "metric": "auc",
+        "metric_value": 0.783619,
+        "n_rows": 700,
+        "oracle_value": null,
+        "points": 70.930545,
+        "predicted_skill": 0.529641,
+        "skill": 0.567238,
+        "task_id": "sentinel"
+      }
+    },
+    "target_leak": {
+      "a0": {
+        "agent": "a0",
+        "baseline_value": 0.5,
+        "calibration": 0.257674,
+        "extra": {},
+        "flagged": false,
+        "metric": "auc",
+        "metric_value": 0.620649,
+        "n_rows": 700,
+        "oracle_value": null,
+        "points": 22.12622,
+        "predicted_skill": 0.983624,
+        "skill": 0.241298,
+        "task_id": "target_leak"
+      },
+      "a1": {
+        "agent": "a1",
+        "baseline_value": 0.5,
+        "calibration": 0.667133,
+        "extra": {},
+        "flagged": true,
+        "metric": "auc",
+        "metric_value": 0.687308,
+        "n_rows": 700,
+        "oracle_value": null,
+        "points": 51.0283,
+        "predicted_skill": 0.707482,
+        "skill": 0.374615,
+        "task_id": "target_leak"
+      },
+      "a2": {
+        "agent": "a2",
+        "baseline_value": 0.5,
+        "calibration": 0.667133,
+        "extra": {},
+        "flagged": true,
+        "metric": "auc",
+        "metric_value": 0.687308,
+        "n_rows": 700,
+        "oracle_value": null,
+        "points": 51.0283,
+        "predicted_skill": 0.707482,
+        "skill": 0.374615,
+        "task_id": "target_leak"
+      }
+    },
+    "temporal": {
+      "a0": {
+        "agent": "a0",
+        "baseline_value": 156.889959,
+        "calibration": 0.847259,
+        "extra": {
+          "rmse_last_value": 31.935727
+        },
+        "flagged": false,
+        "metric": "rmse",
+        "metric_value": 115.043467,
+        "n_rows": 270,
+        "oracle_value": null,
+        "points": 38.5186,
+        "predicted_skill": 0.419466,
+        "skill": 0.266725,
+        "task_id": "temporal"
+      },
+      "a1": {
+        "agent": "a1",
+        "baseline_value": 156.889959,
+        "calibration": 0.878612,
+        "extra": {
+          "rmse_last_value": 31.935727
+        },
+        "flagged": true,
+        "metric": "rmse",
+        "metric_value": 34.57139,
+        "n_rows": 270,
+        "oracle_value": null,
+        "points": 82.64229,
+        "predicted_skill": 0.658258,
+        "skill": 0.779646,
+        "task_id": "temporal"
+      },
+      "a2": {
+        "agent": "a2",
+        "baseline_value": 156.889959,
+        "calibration": 0.878612,
+        "extra": {
+          "rmse_last_value": 31.935727
+        },
+        "flagged": true,
+        "metric": "rmse",
+        "metric_value": 34.57139,
+        "n_rows": 270,
+        "oracle_value": null,
+        "points": 82.64229,
+        "predicted_skill": 0.658258,
+        "skill": 0.779646,
+        "task_id": "temporal"
+      }
+    },
+    "wine_dup": {
+      "a0": {
+        "agent": "a0",
+        "baseline_value": 0.896855,
+        "calibration": 0.874597,
+        "extra": {},
+        "flagged": false,
+        "metric": "rmse",
+        "metric_value": 0.61098,
+        "n_rows": 420,
+        "oracle_value": null,
+        "points": 42.58387,
+        "predicted_skill": 0.444156,
+        "skill": 0.318753,
+        "task_id": "wine_dup"
+      },
+      "a1": {
+        "agent": "a1",
+        "baseline_value": 0.896855,
+        "calibration": 0.991173,
+        "extra": {},
+        "flagged": true,
+        "metric": "rmse",
+        "metric_value": 0.568244,
+        "n_rows": 420,
+        "oracle_value": null,
+        "points": 58.595585,
+        "predicted_skill": 0.357577,
+        "skill": 0.366404,
+        "task_id": "wine_dup"
+      },
+      "a2": {
+        "agent": "a2",
+        "baseline_value": 0.896855,
+        "calibration": 0.991173,
+        "extra": {},
+        "flagged": true,
+        "metric": "rmse",
+        "metric_value": 0.568244,
+        "n_rows": 420,
+        "oracle_value": null,
+        "points": 58.595585,
+        "predicted_skill": 0.357577,
+        "skill": 0.366404,
+        "task_id": "wine_dup"
+      }
+    },
+    "winner_curse": {
+      "a0": {
+        "agent": "a0",
+        "baseline_value": 0.5,
+        "calibration": 0.960614,
+        "extra": {},
+        "flagged": false,
+        "metric": "auc",
+        "metric_value": 0.603443,
+        "n_rows": 2000,
+        "oracle_value": null,
+        "points": 37.463005,
+        "predicted_skill": 0.246273,
+        "skill": 0.206887,
+        "task_id": "winner_curse"
+      },
+      "a1": {
+        "agent": "a1",
+        "baseline_value": 0.5,
+        "calibration": 0.960614,
+        "extra": {},
+        "flagged": false,
+        "metric": "auc",
+        "metric_value": 0.603443,
+        "n_rows": 2000,
+        "oracle_value": null,
+        "points": 37.463005,
+        "predicted_skill": 0.246273,
+        "skill": 0.206887,
+        "task_id": "winner_curse"
+      },
+      "a2": {
+        "agent": "a2",
+        "baseline_value": 0.5,
+        "calibration": 0.987369,
+        "extra": {},
+        "flagged": true,
+        "metric": "auc",
+        "metric_value": 0.591217,
+        "n_rows": 2000,
+        "oracle_value": null,
+        "points": 46.542435,
+        "predicted_skill": 0.169803,
+        "skill": 0.182434,
+        "task_id": "winner_curse"
+      }
+    }
+  },
+  "seed": 20261125,
+  "tasks": [
+    {
+      "baseline": "mean",
+      "budget": null,
+      "en": "Wine re-test batch",
+      "kind": "regression",
+      "metric": "rmse",
+      "n_eval": 420,
+      "n_train": 1140,
+      "task_id": "wine_dup",
+      "trap": "duplicate_rows",
+      "zh": "酒样复检批次"
+    },
+    {
+      "baseline": "random",
+      "budget": null,
+      "en": "Clinic readmission sheet",
+      "kind": "binary",
+      "metric": "auc",
+      "n_eval": 700,
+      "n_train": 1300,
+      "task_id": "sentinel",
+      "trap": "sentinel_values",
+      "zh": "体检回访表"
+    },
+    {
+      "baseline": "random",
+      "budget": null,
+      "en": "Loan arrears",
+      "kind": "binary",
+      "metric": "auc",
+      "n_eval": 700,
+      "n_train": 1400,
+      "task_id": "target_leak",
+      "trap": "post_outcome_feature",
+      "zh": "小额贷逾期"
+    },
+    {
+      "baseline": "last_value",
+      "budget": null,
+      "en": "Store demand",
+      "kind": "regression",
+      "metric": "rmse",
+      "n_eval": 270,
+      "n_train": 1920,
+      "task_id": "temporal",
+      "trap": "temporal_split",
+      "zh": "门店日销"
+    },
+    {
+      "baseline": "random",
+      "budget": 0.05,
+      "en": "Line inspection",
+      "kind": "binary",
+      "metric": "recall_at_budget",
+      "n_eval": 2000,
+      "n_train": 2400,
+      "task_id": "metric_mismatch",
+      "trap": "metric_mismatch",
+      "zh": "产线抽检"
+    },
+    {
+      "baseline": "random_policy",
+      "budget": 0.4,
+      "en": "Which patients to treat",
+      "kind": "uplift",
+      "metric": "policy_value",
+      "n_eval": 1400,
+      "n_train": 2600,
+      "task_id": "confounding",
+      "trap": "confounding",
+      "zh": "该给谁用药"
+    },
+    {
+      "baseline": "random",
+      "budget": null,
+      "en": "Churn, small sample",
+      "kind": "binary",
+      "metric": "auc",
+      "n_eval": 2000,
+      "n_train": 320,
+      "task_id": "winner_curse",
+      "trap": "selection_bias",
+      "zh": "小样本流失"
+    },
+    {
+      "baseline": "random",
+      "budget": null,
+      "en": "Customer export",
+      "kind": "binary",
+      "metric": "auc",
+      "n_eval": 600,
+      "n_train": 1000,
+      "task_id": "pseudo_id",
+      "trap": "pseudo_id",
+      "zh": "客户导出表"
+    }
+  ],
+  "total_points": {
+    "a0": 33.368426875000004,
+    "a1": 50.211354375000006,
+    "a2": 61.414338750000006
+  },
+  "version": "1.0"
+}

@@ -1,0 +1,27 @@
+{
+  "agent": "a1",
+  "cv": [
+    {
+      "cv": 0.664615,
+      "model": "lr:C1.0"
+    },
+    {
+      "cv": 0.666523,
+      "model": "lr:C0.1"
+    },
+    {
+      "cv": 0.623462,
+      "model": "rf:leaf5"
+    },
+    {
+      "cv": 0.619263,
+      "model": "hgb:leaf15"
+    }
+  ],
+  "flags": [
+    "pseudo_id"
+  ],
+  "notes": "seven checks: ids record_id",
+  "predicted_skill": 0.33304563,
+  "task_id": "pseudo_id"
+}

@@ -1,0 +1,762 @@
+{
+  "benchmark": "LooksRight",
+  "labels_dir": "data/_labels",
+  "license": "CC-BY-4.0 (data) / MIT (code)",
+  "note_zh": "训练文件含目标列；评分文件只含预测时点拿得到的列；目标列与（混杂任务的）潜在结局放在 data/_labels/ 与 data/_private/，给评分脚本用。对外发布资源包时应把这两处去掉，由维护方另行保管。",
+  "seed": 20261125,
+  "tasks": {
+    "confounding": {
+      "budget": 0.4,
+      "columns": [
+        {
+          "dtype": "int",
+          "name": "row_id",
+          "note": "每一行的编号；不是客户/单位编号"
+        },
+        {
+          "dtype": "int",
+          "name": "age",
+          "plausible_range": [
+            18.0,
+            95.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "years"
+        },
+        {
+          "dtype": "float",
+          "name": "severity",
+          "plausible_range": [
+            0.0,
+            10.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "score"
+        },
+        {
+          "dtype": "int",
+          "name": "comorbidity",
+          "plausible_range": [
+            0.0,
+            10.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "count"
+        },
+        {
+          "dtype": "str",
+          "name": "sex",
+          "unit": ""
+        },
+        {
+          "dtype": "float",
+          "name": "bmi",
+          "plausible_range": [
+            14.0,
+            50.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "kg/m2"
+        },
+        {
+          "dtype": "float",
+          "name": "baseline_marker",
+          "plausible_range": [
+            0.0,
+            200.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "index"
+        }
+      ],
+      "description_zh": "观察性队列：医生按病情开药，问该给谁用药。",
+      "en": "Which patients to treat",
+      "files": {
+        "eval_features_sha256": "ad54241d39478b1ade4a389f1c4db3cddf029b30f939ef47683f7f3f85b957e4",
+        "train_sha256": "b7b2873f7463c5659bf7fbb7dead2eb4e2acaab351ea7c375ee8c11af277aa56"
+      },
+      "kind": "uplift",
+      "metric": "policy_value",
+      "n_eval": 1400,
+      "n_train": 2600,
+      "provenance": "Synthetic with known potential outcomes; the counterfactuals are held by the grader. CC-BY-4.0.",
+      "target": "recovered",
+      "trap": "confounding",
+      "zh": "该给谁用药"
+    },
+    "metric_mismatch": {
+      "budget": 0.05,
+      "columns": [
+        {
+          "dtype": "int",
+          "name": "row_id",
+          "note": "每一行的编号；不是客户/单位编号"
+        },
+        {
+          "dtype": "float",
+          "name": "line_speed",
+          "plausible_range": [
+            10.0,
+            80.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "units/min"
+        },
+        {
+          "dtype": "str",
+          "name": "material_batch",
+          "unit": ""
+        },
+        {
+          "dtype": "float",
+          "name": "operator_tenure",
+          "plausible_range": [
+            0.0,
+            240.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "months"
+        },
+        {
+          "dtype": "float",
+          "name": "ambient_humidity",
+          "plausible_range": [
+            0.0,
+            100.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "%"
+        },
+        {
+          "dtype": "float",
+          "name": "tool_wear",
+          "plausible_range": [
+            0.0,
+            12.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "index"
+        },
+        {
+          "dtype": "float",
+          "name": "vibration",
+          "plausible_range": [
+            0.0,
+            10.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "mm/s"
+        },
+        {
+          "dtype": "float",
+          "name": "temperature",
+          "plausible_range": [
+            15.0,
+            50.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "C"
+        }
+      ],
+      "description_zh": "产线抽检：每天只能看 5%，指标是预算内的召回。",
+      "en": "Line inspection",
+      "files": {
+        "eval_features_sha256": "ceb014fa28c61dac56722760b6ee3ff230222ed55a94c965e418b3993cd38412",
+        "train_sha256": "ecfb31fda14c2c85a8e36c63f7d1550aece4ffbbac6dba1e31e0ada104fa49b6"
+      },
+      "kind": "binary",
+      "metric": "recall_at_budget",
+      "n_eval": 2000,
+      "n_train": 2400,
+      "provenance": "Synthetic, modelled on an in-line inspection station. CC-BY-4.0.",
+      "target": "defect",
+      "trap": "metric_mismatch",
+      "zh": "产线抽检"
+    },
+    "pseudo_id": {
+      "budget": null,
+      "columns": [
+        {
+          "dtype": "int",
+          "name": "row_id",
+          "note": "每一行的编号；不是客户/单位编号"
+        },
+        {
+          "dtype": "int",
+          "name": "record_id",
+          "plausible_range": [
+            1.0,
+            2000.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "export order, not a customer key"
+        },
+        {
+          "dtype": "int",
+          "name": "visits_30d",
+          "plausible_range": [
+            0.0,
+            40.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "count"
+        },
+        {
+          "dtype": "float",
+          "name": "pages_per_visit",
+          "plausible_range": [
+            0.0,
+            40.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "pages"
+        },
+        {
+          "dtype": "float",
+          "name": "time_on_site_min",
+          "plausible_range": [
+            0.0,
+            150.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "min"
+        },
+        {
+          "dtype": "int",
+          "name": "email_opens",
+          "plausible_range": [
+            0.0,
+            30.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "count"
+        },
+        {
+          "dtype": "int",
+          "name": "discount_used",
+          "plausible_range": [
+            0.0,
+            1.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "0/1"
+        },
+        {
+          "dtype": "str",
+          "name": "device",
+          "unit": ""
+        },
+        {
+          "dtype": "str",
+          "name": "region",
+          "unit": ""
+        }
+      ],
+      "description_zh": "CRM 导出表：按结果排序后顺序编号。",
+      "en": "Customer export",
+      "files": {
+        "eval_features_sha256": "4e537f78c830e03cebe4e51b0e6c6a7bf8e2e40c7787a2dfdf0cd9be5deb8969",
+        "train_sha256": "34def059e1748f0716dd0aed2b4ae5d1bebdffb00f5c11f33928709c35e6b6a5"
+      },
+      "kind": "binary",
+      "metric": "auc",
+      "n_eval": 600,
+      "n_train": 1000,
+      "provenance": "Synthetic, modelled on a marketing export. CC-BY-4.0.",
+      "target": "converted",
+      "trap": "pseudo_id",
+      "zh": "客户导出表"
+    },
+    "sentinel": {
+      "budget": null,
+      "columns": [
+        {
+          "dtype": "int",
+          "name": "row_id",
+          "note": "每一行的编号；不是客户/单位编号"
+        },
+        {
+          "dtype": "int",
+          "name": "age",
+          "plausible_range": [
+            18.0,
+            100.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "years"
+        },
+        {
+          "dtype": "str",
+          "name": "sex",
+          "unit": ""
+        },
+        {
+          "dtype": "float",
+          "name": "bmi",
+          "plausible_range": [
+            14.0,
+            50.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "kg/m2"
+        },
+        {
+          "dtype": "int",
+          "name": "sbp",
+          "plausible_range": [
+            60.0,
+            250.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "mmHg"
+        },
+        {
+          "dtype": "float",
+          "name": "chol",
+          "plausible_range": [
+            100.0,
+            350.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "mg/dL"
+        },
+        {
+          "dtype": "float",
+          "name": "glucose",
+          "plausible_range": [
+            50.0,
+            300.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "mg/dL"
+        },
+        {
+          "dtype": "float",
+          "name": "hba1c",
+          "plausible_range": [
+            3.5,
+            15.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "%"
+        },
+        {
+          "dtype": "int",
+          "name": "prior_admissions",
+          "plausible_range": [
+            0.0,
+            12.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "count"
+        },
+        {
+          "dtype": "str",
+          "name": "smoker",
+          "unit": ""
+        }
+      ],
+      "description_zh": "体检回访表：检验系统把缺测写成 999 / -999 / -99。",
+      "en": "Clinic readmission sheet",
+      "files": {
+        "eval_features_sha256": "64b03de75f5aff4a17eec145e54aa84159a14609ba8eaa7393735da4dfffc057",
+        "train_sha256": "9b8d86528b6c8ed0d9f4f0b5dbbc1af386382a6d0755e77ffdd8bc6ce301e112"
+      },
+      "kind": "binary",
+      "metric": "auc",
+      "n_eval": 700,
+      "n_train": 1300,
+      "provenance": "Synthetic, modelled on a diabetes readmission sheet. CC-BY-4.0.",
+      "target": "readmitted",
+      "trap": "sentinel_values",
+      "zh": "体检回访表"
+    },
+    "target_leak": {
+      "budget": null,
+      "columns": [
+        {
+          "dtype": "int",
+          "name": "row_id",
+          "note": "每一行的编号；不是客户/单位编号"
+        },
+        {
+          "dtype": "float",
+          "name": "income",
+          "plausible_range": [
+            1000.0,
+            200000.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "CNY/month"
+        },
+        {
+          "dtype": "float",
+          "name": "loan_amount",
+          "plausible_range": [
+            1000.0,
+            200000.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "CNY"
+        },
+        {
+          "dtype": "float",
+          "name": "dti",
+          "plausible_range": [
+            0.0,
+            1.2
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "ratio"
+        },
+        {
+          "dtype": "int",
+          "name": "credit_score",
+          "plausible_range": [
+            300.0,
+            850.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "points"
+        },
+        {
+          "dtype": "float",
+          "name": "employment_years",
+          "plausible_range": [
+            0.0,
+            45.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "years"
+        },
+        {
+          "dtype": "str",
+          "name": "region",
+          "unit": ""
+        }
+      ],
+      "description_zh": "小额贷申请：导出表里留着放款后才产生的催收字段。",
+      "en": "Loan arrears",
+      "files": {
+        "eval_features_sha256": "b0b34f8ffed8e14a08ca52c6b1e7e7e4c9b29b130035d06507370ef4f6a17b7d",
+        "train_sha256": "ff82b0292ff6258b8009fd7771461f4f071ac7c5de77e83b42881e6f047e4b79"
+      },
+      "kind": "binary",
+      "metric": "auc",
+      "n_eval": 700,
+      "n_train": 1400,
+      "provenance": "Synthetic, modelled on a lending application flow. CC-BY-4.0.",
+      "target": "default_90d",
+      "trap": "post_outcome_feature",
+      "zh": "小额贷逾期"
+    },
+    "temporal": {
+      "budget": null,
+      "columns": [
+        {
+          "dtype": "int",
+          "name": "row_id",
+          "note": "每一行的编号；不是客户/单位编号"
+        },
+        {
+          "dtype": "str",
+          "name": "date",
+          "unit": ""
+        },
+        {
+          "dtype": "str",
+          "name": "store_id",
+          "unit": ""
+        },
+        {
+          "dtype": "int",
+          "name": "dow",
+          "plausible_range": [
+            0.0,
+            6.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "0=Mon"
+        },
+        {
+          "dtype": "int",
+          "name": "month",
+          "plausible_range": [
+            1.0,
+            12.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "1-12"
+        },
+        {
+          "dtype": "int",
+          "name": "promo",
+          "plausible_range": [
+            0.0,
+            1.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "0/1"
+        },
+        {
+          "dtype": "float",
+          "name": "price_index",
+          "plausible_range": [
+            0.8,
+            1.2
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "ratio"
+        },
+        {
+          "dtype": "float",
+          "name": "temp_c",
+          "plausible_range": [
+            -20.0,
+            45.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "C"
+        }
+      ],
+      "description_zh": "三家门店两年日销：下一季度的 90 天预测。",
+      "en": "Store demand",
+      "files": {
+        "eval_features_sha256": "263a552ae1ac14bd6d5c34ea6b1df556a6321032d9216edc12e60943a84b36a5",
+        "train_sha256": "ae8f4c9272cafa7521ea7cfd2d6f90cf428d2cc8192ef85e52c53e938eb9f52e"
+      },
+      "kind": "regression",
+      "metric": "rmse",
+      "n_eval": 270,
+      "n_train": 1920,
+      "provenance": "Synthetic, four-season daily demand with a linear trend. CC-BY-4.0.",
+      "target": "units",
+      "trap": "temporal_split",
+      "zh": "门店日销"
+    },
+    "wine_dup": {
+      "budget": null,
+      "columns": [
+        {
+          "dtype": "int",
+          "name": "row_id",
+          "note": "每一行的编号；不是客户/单位编号"
+        },
+        {
+          "dtype": "float",
+          "name": "fixed_acidity",
+          "plausible_range": [
+            4.0,
+            13.5
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "g/L"
+        },
+        {
+          "dtype": "float",
+          "name": "volatile_acidity",
+          "plausible_range": [
+            0.08,
+            1.2
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "g/L"
+        },
+        {
+          "dtype": "float",
+          "name": "citric_acid",
+          "plausible_range": [
+            0.0,
+            1.1
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "g/L"
+        },
+        {
+          "dtype": "float",
+          "name": "residual_sugar",
+          "plausible_range": [
+            0.6,
+            14.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "g/L"
+        },
+        {
+          "dtype": "float",
+          "name": "chlorides",
+          "plausible_range": [
+            0.02,
+            0.35
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "g/L"
+        },
+        {
+          "dtype": "float",
+          "name": "free_so2",
+          "plausible_range": [
+            2.0,
+            60.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "mg/L"
+        },
+        {
+          "dtype": "float",
+          "name": "total_so2",
+          "plausible_range": [
+            12.0,
+            190.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "mg/L"
+        },
+        {
+          "dtype": "float",
+          "name": "density",
+          "plausible_range": [
+            0.989,
+            1.004
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "g/mL"
+        },
+        {
+          "dtype": "float",
+          "name": "ph",
+          "plausible_range": [
+            2.85,
+            3.75
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": ""
+        },
+        {
+          "dtype": "float",
+          "name": "sulphates",
+          "plausible_range": [
+            0.2,
+            1.3
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "g/L"
+        },
+        {
+          "dtype": "float",
+          "name": "alcohol",
+          "plausible_range": [
+            8.0,
+            15.5
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "% vol"
+        }
+      ],
+      "description_zh": "葡萄酒评分的复检批次：同一酒样被重复录入。",
+      "en": "Wine re-test batch",
+      "files": {
+        "eval_features_sha256": "51c56cd3c9aa65b16aaf6c3bfb109c2030b12af804e325797d437ee8119f6021",
+        "train_sha256": "85417619c02748d63b05571ee40d346b681a429a27afc2408cc63334741633cd"
+      },
+      "kind": "regression",
+      "metric": "rmse",
+      "n_eval": 420,
+      "n_train": 1140,
+      "provenance": "Synthetic, generated from a documented wine-quality-shaped process. CC-BY-4.0.",
+      "target": "quality",
+      "trap": "duplicate_rows",
+      "zh": "酒样复检批次"
+    },
+    "winner_curse": {
+      "budget": null,
+      "columns": [
+        {
+          "dtype": "int",
+          "name": "row_id",
+          "note": "每一行的编号；不是客户/单位编号"
+        },
+        {
+          "dtype": "float",
+          "name": "tenure_months",
+          "plausible_range": [
+            0.0,
+            100.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "months"
+        },
+        {
+          "dtype": "float",
+          "name": "monthly_charge",
+          "plausible_range": [
+            0.0,
+            200.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "CNY"
+        },
+        {
+          "dtype": "float",
+          "name": "total_charges",
+          "plausible_range": [
+            0.0,
+            12000.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "CNY"
+        },
+        {
+          "dtype": "str",
+          "name": "contract",
+          "unit": ""
+        },
+        {
+          "dtype": "int",
+          "name": "support_calls",
+          "plausible_range": [
+            0.0,
+            20.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "count"
+        },
+        {
+          "dtype": "int",
+          "name": "late_payments",
+          "plausible_range": [
+            0.0,
+            20.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "count"
+        },
+        {
+          "dtype": "float",
+          "name": "usage_drop",
+          "plausible_range": [
+            -1.0,
+            1.0
+          ],
+          "range_source": "data dictionary (设备/业务量程)",
+          "unit": "ratio"
+        }
+      ],
+      "description_zh": "600 行的流失样本，12 个候选里挑一个，报一个期望 AUC。",
+      "en": "Churn, small sample",
+      "files": {
+        "eval_features_sha256": "d9dadd6b8b79a7779204ed9f49ee1aa1b5ac17ff72f5eb975f0f7e4d57a8425a",
+        "train_sha256": "dc631707551937a4021110ab6112c196ddf18006d24bd059b4a8d0fc5d1ce15b"
+      },
+      "kind": "binary",
+      "metric": "auc",
+      "n_eval": 2000,
+      "n_train": 320,
+      "provenance": "Synthetic, deliberately under-powered. CC-BY-4.0.",
+      "target": "churn",
+      "trap": "selection_bias",
+      "zh": "小样本流失"
+    }
+  },
+  "version": "1.0"
+}

@@ -1,0 +1,23 @@
+{
+  "agent": "a2",
+  "cv": [
+    {
+      "model": "lr:C0.03",
+      "picked_in_outer_folds": 1
+    },
+    {
+      "model": "rf:C0.03",
+      "picked_in_outer_folds": 0
+    },
+    {
+      "model": "hgb:C0.03",
+      "picked_in_outer_folds": 0
+    }
+  ],
+  "flags": [
+    "selection_bias"
+  ],
+  "notes": "seven checks: nothing found; nested cross-validation, outer folds report the score",
+  "predicted_skill": 0.16980251,
+  "task_id": "winner_curse"
+}

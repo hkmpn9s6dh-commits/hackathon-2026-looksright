@@ -1,0 +1,28 @@
+{
+  "agent": "a1",
+  "cv": [
+    {
+      "cv": 0.825535,
+      "model": "lr:C1.0"
+    },
+    {
+      "cv": 0.828445,
+      "model": "lr:C0.1"
+    },
+    {
+      "cv": 0.853741,
+      "model": "rf:leaf5"
+    },
+    {
+      "cv": 0.817385,
+      "model": "hgb:leaf15"
+    }
+  ],
+  "flags": [
+    "post_outcome_feature",
+    "sentinel_values"
+  ],
+  "notes": "seven checks: sentinels in collections_30d,recovered_amount; minority 9.6%; near-perfect collections_30d,days_to_first_payment",
+  "predicted_skill": 0.70748192,
+  "task_id": "target_leak"
+}

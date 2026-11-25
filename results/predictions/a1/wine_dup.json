@@ -1,0 +1,27 @@
+{
+  "agent": "a1",
+  "cv": [
+    {
+      "cv": -0.581274,
+      "model": "lr:C1.0"
+    },
+    {
+      "cv": -0.598258,
+      "model": "lr:C0.1"
+    },
+    {
+      "cv": -0.59132,
+      "model": "rf:leaf5"
+    },
+    {
+      "cv": -0.62223,
+      "model": "hgb:leaf15"
+    }
+  ],
+  "flags": [
+    "duplicate_rows"
+  ],
+  "notes": "seven checks: 320 duplicate rows",
+  "predicted_skill": 0.35757701,
+  "task_id": "wine_dup"
+}

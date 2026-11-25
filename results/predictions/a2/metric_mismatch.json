@@ -1,0 +1,31 @@
+{
+  "agent": "a2",
+  "cv": [
+    {
+      "cv": 0.233751,
+      "model": "lr:C1.0",
+      "recall_at_budget": 0.283709
+    },
+    {
+      "cv": 0.238765,
+      "model": "lr:C0.1",
+      "recall_at_budget": 0.283709
+    },
+    {
+      "cv": 0.203122,
+      "model": "rf:leaf5",
+      "recall_at_budget": 0.296536
+    },
+    {
+      "cv": 0.161274,
+      "model": "hgb:leaf15",
+      "recall_at_budget": 0.229146
+    }
+  ],
+  "flags": [
+    "metric_mismatch"
+  ],
+  "notes": "seven checks: minority 3.7%; selects by average precision and reports the recall the budget buys",
+  "predicted_skill": 0.25951208,
+  "task_id": "metric_mismatch"
+}

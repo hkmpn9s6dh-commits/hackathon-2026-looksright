@@ -1,0 +1,25 @@
+{
+  "agent": "a0",
+  "cv": [
+    {
+      "cv": 0.970346,
+      "model": "lr:C1.0"
+    },
+    {
+      "cv": 0.982462,
+      "model": "lr:C0.1"
+    },
+    {
+      "cv": 0.98829,
+      "model": "rf:leaf5"
+    },
+    {
+      "cv": 0.991812,
+      "model": "hgb:leaf15"
+    }
+  ],
+  "flags": [],
+  "notes": "all columns, random K-fold, stock metric",
+  "predicted_skill": 0.98362376,
+  "task_id": "target_leak"
+}

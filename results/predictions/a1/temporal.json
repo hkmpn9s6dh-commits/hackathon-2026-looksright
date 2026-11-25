@@ -1,0 +1,28 @@
+{
+  "agent": "a1",
+  "cv": [
+    {
+      "cv": -39.227131,
+      "model": "lr:C1.0"
+    },
+    {
+      "cv": -40.378246,
+      "model": "lr:C0.1"
+    },
+    {
+      "cv": -46.936577,
+      "model": "rf:leaf5"
+    },
+    {
+      "cv": -43.358941,
+      "model": "hgb:leaf15"
+    }
+  ],
+  "flags": [
+    "sentinel_values",
+    "temporal_split"
+  ],
+  "notes": "seven checks: sentinels in promo; time date",
+  "predicted_skill": 0.6582576,
+  "task_id": "temporal"
+}

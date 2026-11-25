@@ -1,0 +1,57 @@
+{
+  "agent": "a0",
+  "cv": [
+    {
+      "cv": 0.612735,
+      "model": "lr:C0.03"
+    },
+    {
+      "cv": 0.623136,
+      "model": "lr:C0.3"
+    },
+    {
+      "cv": 0.621937,
+      "model": "lr:C3.0"
+    },
+    {
+      "cv": 0.52982,
+      "model": "rf:leaf1"
+    },
+    {
+      "cv": 0.502874,
+      "model": "rf:leaf2"
+    },
+    {
+      "cv": 0.531175,
+      "model": "rf:leaf5"
+    },
+    {
+      "cv": 0.57277,
+      "model": "rf:leaf15"
+    },
+    {
+      "cv": 0.552658,
+      "model": "hgb:leaf3"
+    },
+    {
+      "cv": 0.535585,
+      "model": "hgb:leaf7"
+    },
+    {
+      "cv": 0.521781,
+      "model": "hgb:leaf15"
+    },
+    {
+      "cv": 0.521781,
+      "model": "hgb:leaf31"
+    },
+    {
+      "cv": 0.521781,
+      "model": "hgb:leaf63"
+    }
+  ],
+  "flags": [],
+  "notes": "all columns, random K-fold, stock metric",
+  "predicted_skill": 0.2462726,
+  "task_id": "winner_curse"
+}

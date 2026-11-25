@@ -1,0 +1,25 @@
+{
+  "agent": "a0",
+  "cv": [
+    {
+      "cv": 0.843179,
+      "model": "lr:C1.0"
+    },
+    {
+      "cv": 0.842634,
+      "model": "lr:C0.1"
+    },
+    {
+      "cv": 0.804993,
+      "model": "rf:leaf5"
+    },
+    {
+      "cv": 0.797672,
+      "model": "hgb:leaf15"
+    }
+  ],
+  "flags": [],
+  "notes": "all columns, random K-fold, stock metric",
+  "predicted_skill": 0.68635776,
+  "task_id": "metric_mismatch"
+}

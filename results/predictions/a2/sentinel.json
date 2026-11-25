@@ -1,0 +1,27 @@
+{
+  "agent": "a2",
+  "cv": [
+    {
+      "cv": 0.764599,
+      "model": "lr:C1.0"
+    },
+    {
+      "cv": 0.764821,
+      "model": "lr:C0.1"
+    },
+    {
+      "cv": 0.725134,
+      "model": "rf:leaf5"
+    },
+    {
+      "cv": 0.691882,
+      "model": "hgb:leaf15"
+    }
+  ],
+  "flags": [
+    "sentinel_values"
+  ],
+  "notes": "seven checks: sentinels in bmi,chol,glucose,hba1c,sbp",
+  "predicted_skill": 0.52964149,
+  "task_id": "sentinel"
+}
