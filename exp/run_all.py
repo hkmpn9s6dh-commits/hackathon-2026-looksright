@@ -126,6 +126,14 @@ def main():
     args = ap.parse_args()
     t0 = time.time()
     results, path = run(args.out, args.quiet)
+
+    # Every figure is drawn from results.json, so it belongs to the same command.
+    sys.path.insert(0, HERE)
+    from make_figures import make_all
+    figs = make_all(results, os.path.join(args.out, "figures"))
+    if not args.quiet:
+        print("")
+        print("figures:", ", ".join(os.path.basename(f) for f in figs))
     if not args.quiet:
         print("\n== totals (mean points over 8 tasks) ==")
         for a in AGENTS:
