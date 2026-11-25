@@ -461,12 +461,4 @@ def _recall_at(pred: np.ndarray, y: np.ndarray, budget: float) -> float:
     return float(hit / total) if total > 0 else 0.0
 
 
-def _policy_value_from_scores(up: np.ndarray, p0: np.ndarray, p1: np.ndarray, budget: float) -> float:
-    k = max(1, int(round(budget * len(up))))
-    order = np.argsort(-np.asarray(up))
-    take = np.zeros(len(up), dtype=bool)
-    take[order[:k]] = True
-    return float(np.mean(np.where(take, p1, p0)))
-
-
 AGENT_CLASSES = {"a0": A0, "a1": A1, "a2": A2}

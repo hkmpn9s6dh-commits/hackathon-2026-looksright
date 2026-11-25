@@ -23,7 +23,6 @@ import pandas as pd
 
 TIME_HINTS = ("date", "datetime", "timestamp", "time", "ds", "month_end", "日期", "时间")
 ID_HINTS = ("id", "uuid", "guid", "key", "编号", "序号")
-SENTINEL_CODES = (-9999.0, -999.0, -99.0, -9.0, 9999.0, 999.0, 0.0)
 
 
 @dataclass
